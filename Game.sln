@@ -1,25 +1,644 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36623.8 d17.14
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{256C5083-E3D4-4734-AF5C-E74F3131DCC2}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{256C5083-E3D4-4734-AF5C-E74F3131DCC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{256C5083-E3D4-4734-AF5C-E74F3131DCC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{256C5083-E3D4-4734-AF5C-E74F3131DCC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{256C5083-E3D4-4734-AF5C-E74F3131DCC2}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {136936AE-93A8-4DA5-A9B7-CCCC5D2F996E}
-	EndGlobalSection
-EndGlobal
+using System;
+
+namespace DetectiveNovel
+{
+    class Program
+    {
+        static int step = 1;
+
+        // Система счетчиков для концовок
+        static int alicePts = 0;
+        static int antonPts = 0;
+        static int evidPts = 0;
+        static int witPts = 0;
+        static int arrPts = 0;
+        static int methPts = 0;
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("УБИЙСТВО\n");
+            Console.WriteLine("Вы - детектив, расследующий загадочное убийство Рустама Калакуцкого.\n");
+
+            while (step <= 20)
+            {
+                ShowScene();
+            }
+
+            ShowEnding();
+
+            Console.WriteLine("\nНажмите любую клавишу для выхода...");
+            Console.ReadKey();
+        }
+
+        static void ShowScene()
+        {
+            Console.WriteLine($"\n--- Шаг {step} ---");
+
+            switch (step)
+            {
+                case 1:
+                    Scene1();
+                    break;
+                case 2:
+                    Scene2();
+                    break;
+                case 3:
+                    Scene3();
+                    break;
+                case 4:
+                    Scene4();
+                    break;
+                case 5:
+                    Scene5();
+                    break;
+                case 6:
+                    Scene6();
+                    break;
+                case 7:
+                    Scene7();
+                    break;
+                case 8:
+                    Scene8();
+                    break;
+                case 9:
+                    Scene9();
+                    break;
+                case 10:
+                    Scene10();
+                    break;
+                case 11:
+                    Scene11();
+                    break;
+                case 12:
+                    Scene12();
+                    break;
+                case 13:
+                    Scene13();
+                    break;
+                case 14:
+                    Scene14();
+                    break;
+                case 15:
+                    Scene15();
+                    break;
+                case 16:
+                    Scene16();
+                    break;
+                case 17:
+                    Scene17();
+                    break;
+                case 18:
+                    Scene18();
+                    break;
+                case 19:
+                    Scene19();
+                    break;
+                case 20:
+                    Scene20();
+                    break;
+            }
+
+            step++;
+        }
+
+        static void Scene1()
+        {
+            Console.WriteLine("Вы прибываете в колледж.");
+            Console.WriteLine("1. Немедленно осмотреть место преступления");
+            Console.WriteLine("2. Сначала поговорить с куратором на 1 этаже");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("Вы направляетесь на 4 этаж, на место преступления.");
+                methPts += 1;
+            }
+            else
+            {
+                Console.WriteLine("Александр Сергеевич сообщает: 'Никто не входил и не выходил последние 2 часа'");
+                witPts += 2;
+            }
+        }
+
+        static void Scene2()
+        {
+            Console.WriteLine("В коридоре на 4 этаже тело Рустама в позе Симпсона.");
+            Console.WriteLine("1. Тщательно осмотреть тело");
+            Console.WriteLine("2. Осмотреть коридор на улики");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("На голове виднеется кровь от тупого удара.");
+                evidPts += 3;
+                alicePts += 1;
+            }
+            else
+            {
+                Console.WriteLine("Находите окровавленный учебник по программированию.");
+                evidPts += 1;
+                antonPts += 1;
+            }
+        }
+
+        static void Scene3()
+        {
+            Console.WriteLine("Медсестра подтверждает: смерть была в 8.55.");
+            Console.WriteLine("1. Проверить карманы жертвы");
+            Console.WriteLine("2. Осмотреть учебник");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("В кармане находите флешку.");
+                antonPts += 2;
+            }
+            else
+            {
+                Console.WriteLine("В учебнике обнаруживаете бумажку с кривым почерком.");
+                alicePts += 2;
+            }
+        }
+
+        static void Scene4()
+        {
+            Console.WriteLine("В холле вас ждут два подозреваемых:");
+            Console.WriteLine("- Алиса, однокурсница и подруга");
+            Console.WriteLine("- Антон, друг и парень Рустама");
+            Console.WriteLine("1. Допросить Алису");
+            Console.WriteLine("2. Допросить Антона");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("Алиса: 'Он ахуел вообще, не купил вопперпиццу'");
+                alicePts += 1;
+            }
+            else
+            {
+                Console.WriteLine("Антон: 'Он обязан был скинуть мне домашку по программированию'");
+                antonPts += 1;
+            }
+        }
+
+        static void Scene5()
+        {
+            Console.WriteLine("У каждого подозреваемого есть мотив:");
+            Console.WriteLine("1. Алиса жестокая и пиздит всех вообще без исключения");
+            Console.WriteLine("2. Антон добрый, но мстительный");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("Вы решаете глубже изучить мотив Алисы.");
+                alicePts += 2;
+            }
+            else
+            {
+                Console.WriteLine("Мстительный мотив кажется вам наиболее вероятным.");
+                antonPts += 2;
+            }
+        }
+
+        static void Scene6()
+        {
+            Console.WriteLine("Поиск дополнительных улик:");
+            Console.WriteLine("1. Проверить камеры наблюдения");
+            Console.WriteLine("2. Опросить других однокурсников");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("Камер не было, это слепая зона около туалетов!");
+                evidPts += 2;
+                antonPts += 1;
+            }
+            else
+            {
+                Console.WriteLine("Анна слышала крики около туалета со смехом");
+                witPts += 2;
+            }
+        }
+
+        static void Scene7()
+        {
+            Console.WriteLine("Вы вызываете подозреваемого на допрос:");
+            Console.WriteLine("1. Допросить Алису о ее алиби");
+            Console.WriteLine("2. Допросить Антона о работе");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("'Алиса: Да я его угандошила бы еще раз, но меня не было на первой паре'");
+                alicePts += 1;
+            }
+            else
+            {
+                Console.WriteLine("'Антон: Да придурок вщ, забери его повербанк сходи, у меня телефон разряжается'");
+                antonPts -= 1;
+            }
+        }
+
+        static void Scene8()
+        {
+            Console.WriteLine("Приходят результаты о смерти Рустама:");
+            Console.WriteLine("1. Изучить отчет об умышленном убийстве с помощью учебника");
+            Console.WriteLine("2. Анализ почерка на бумажке");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("То же самое, что и раньше, тупое убийство бедным учебником по информатике, но он принадлежал кому-то из парней");
+                evidPts += 2;
+                antonPts += 2;
+            }
+            else
+            {
+                Console.WriteLine("Почерк мега похож на Алису");
+                evidPts += 3;
+                alicePts += 3;
+            }
+        }
+
+        static void Scene9()
+        {
+            Console.WriteLine("Новая информация: у Рустама спиздили повербанк.");
+            Console.WriteLine("1. Немедленно арестовать Антона за кражу и упоминание повера");
+            Console.WriteLine("2. Продолжить расследование");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("Вы арестовываете Антона, но есть сомнения...");
+                arrPts += 3;
+                antonPts += 2;
+            }
+            else
+            {
+                Console.WriteLine("Вы решаете собрать больше доказательств.");
+                methPts += 2;
+            }
+        }
+
+        static void Scene10()
+        {
+            Console.WriteLine("У вас есть достаточно информации для принятия решения:");
+            Console.WriteLine("1. Арестовать Алису");
+            Console.WriteLine("2. Арестовать Антона");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("Вы арестовываете Алису из-за бумажки в учебнике.");
+                arrPts += 3;
+                alicePts += 2;
+            }
+            else
+            {
+                Console.WriteLine("Вы арестовываете Антона из-за того, что это его учебник.");
+                arrPts += 3;
+                antonPts += 2;
+            }
+        }
+
+        static void Scene11()
+        {
+            Console.WriteLine("Допрос арестованного подозреваемого:");
+            Console.WriteLine("1. Применить жесткие методы допроса");
+            Console.WriteLine("2. Использовать собранные улики");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("Подозреваемый молчит, адвокат протестует.");
+                methPts -= 1;
+            }
+            else
+            {
+                Console.WriteLine("Улики заставляют подозреваемого нервничать.");
+                evidPts += 1;
+            }
+        }
+
+        static void Scene12()
+        {
+            Console.WriteLine("Однокурсники находят скрытую камеру в коридоре");
+            Console.WriteLine("1. Просмотреть запись немедленно");
+            Console.WriteLine("2. Отправить на экспертизу куратору");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("На записи видно, как Алиса бежит на встречу Рустаму");
+                evidPts += 3;
+                alicePts += 3;
+            }
+            else
+            {
+                Console.WriteLine("Экспертиза подтвердит личность через несколько часов.");
+                methPts += 1;
+            }
+        }
+
+        static void Scene13()
+        {
+            Console.WriteLine("Проверка алиби дает результаты:");
+            Console.WriteLine("1. Проверить алиби Алисы");
+            Console.WriteLine("2. Проверить алиби Антона");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("Алиса была у туалетов, но вскоре ушла в кабинет");
+                alicePts += 2;
+            }
+            else
+            {
+                Console.WriteLine("Антон читал учебник и забыл его на пуфиках.");
+                antonPts -= 2;
+            }
+        }
+
+        static void Scene14()
+        {
+            Console.WriteLine("Последние улики:");
+            Console.WriteLine("1. Учебник был в коридоре");
+            Console.WriteLine("2. Да хз не придумала");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("Антон забыл его в коридоре, но там была Алиса");
+                antonPts += 3;
+                evidPts += 2;
+            }
+            else
+            {
+                Console.WriteLine("Не знаю, я Семен Лобанов, у меня башка из картошки.");
+            }
+        }
+
+        static void Scene15()
+        {
+            Console.WriteLine("Финальное решение по делу:");
+            Console.WriteLine("1. Окончательно обвинить Алису");
+            Console.WriteLine("2. Окончательно обвинить Антона");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                alicePts += 5;
+                arrPts += 2;
+            }
+            else
+            {
+                antonPts += 5;
+                arrPts += 2;
+            }
+        }
+
+        static void Scene16()
+        {
+            Console.WriteLine("Финальная конфронтация с главным подозреваемым:");
+
+            if (alicePts > antonPts)
+            {
+                Console.WriteLine("Алиса: 'Он не купил воппер пиццу, не скинулся на нее даже!'");
+                alicePts += 2;
+            }
+            else
+            {
+                Console.WriteLine("Антон: 'Он не скинул мне работу по программированию, я щас сам спизжу'");
+                antonPts += 2;
+            }
+
+            Console.WriteLine("1. Предъявить все улики");
+            Console.WriteLine("2. Попытаться получить полное признание");
+
+            GetChoice(2);
+            evidPts += 1;
+        }
+
+        static void Scene17()
+        {
+            Console.WriteLine("НЕОЖИДАННЫЙ ПОВОРОТ: Появляются новые детали!");
+            Console.WriteLine("1. Рассмотреть новые обстоятельства");
+            Console.WriteLine("2. Остаться при первоначальном решении");
+
+            int ch = GetChoice(2);
+
+            if (ch == 1)
+            {
+                Console.WriteLine("Обнаружено, что оба подозреваемых могли действовать вместе!");
+                methPts += 2;
+            }
+            else
+            {
+                Console.WriteLine("Вы уверены в своем выборе и отвергаете новые версии.");
+                arrPts += 1;
+            }
+        }
+
+        static void Scene18()
+        {
+            Console.WriteLine("Истинный мотив раскрыт:");
+
+            if (alicePts > antonPts)
+            {
+                Console.WriteLine("Алиса убила Рустама, так как она та еще нефорша жестокая.");
+                alicePts += 3;
+            }
+            else
+            {
+                Console.WriteLine("Антон мстил за избиения на перерывах и отказ отдать материал.");
+                antonPts += 3;
+            }
+        }
+
+        static void Scene19()
+        {
+            Console.WriteLine("Под давлением улик подозреваемый признается:");
+
+            if (alicePts > antonPts)
+            {
+                Console.WriteLine("Алиса: 'Да, я отпиздила его, ну а че он'");
+                alicePts += 5;
+                Console.WriteLine("Антон: 'Бизнес есть бизнес...'");
+                antonPts += 5;
+            }
+        }
+
+        static void Scene20()
+        {
+            Console.WriteLine("Дело передано в суд. Расследование завершено.");
+            Console.WriteLine("Собранные доказательства убедительны и достаточны для осуждения.");
+        }
+
+        static void ShowEnding()
+        {
+            Console.WriteLine("\nФИНАЛ РАССЛЕДОВАНИЯ");
+
+            bool isAlice = alicePts > antonPts;
+            int mainPts = isAlice ? alicePts : antonPts;
+            int qual = evidPts + witPts + methPts;
+
+            if (mainPts > 20 && qual > 15 && arrPts > 5)
+            {
+                End1(isAlice);
+            }
+            else if (mainPts > 15 && qual > 12 && evidPts > 8)
+            {
+                End2(isAlice);
+            }
+            else if (mainPts > 10 && qual < 10 && arrPts > 5)
+            {
+                End3(isAlice);
+            }
+            else if (mainPts < 10 && qual > 15)
+            {
+                End4();
+            }
+            else if (arrPts < 3 && qual > 10)
+            {
+                End5();
+            }
+            else if (evidPts < 5 && witPts > 10)
+            {
+                End6();
+            }
+            else if (methPts > 10 && evidPts < 8)
+            {
+                End7();
+            }
+            else if (qual < 8 && arrPts > 5)
+            {
+                End8(isAlice);
+            }
+            else if (Math.Abs(alicePts - antonPts) < 5)
+            {
+                End9();
+            }
+            else
+            {
+                End10(isAlice);
+            }
+        }
+
+        static void End1(bool isAlice)
+        {
+            Console.WriteLine("КОНЦОВКА 1: БЕЗУПРЕЧНОЕ ПРАВОСУДИЕ");
+            Console.WriteLine($"Вы арестовали {(isAlice ? "Алису" : "Антона")} - настоящего убийцу!");
+            Console.WriteLine("Все улики собраны, мотив установлен, признание получено.");
+            Console.WriteLine("Суд выносит обвинительный приговор. Ваша репутация и уважение достигает новых высот!");
+        }
+
+        static void End2(bool isAlice)
+        {
+            Console.WriteLine("КОНЦОВКА 2: ПРАВИЛЬНЫЙ АРЕСТ");
+            Console.WriteLine($"{(isAlice ? "Алиса" : "Антон")} признан виновным в убийстве.");
+            Console.WriteLine("Расследование было тщательным, правда восторжествовала.");
+            Console.WriteLine("Дело закрыто, справедливость восстановлена.");
+        }
+
+        static void End3(bool isAlice)
+        {
+            Console.WriteLine("КОНЦОВКА 3: СУДЕБНАЯ ОШИБКА");
+            Console.WriteLine($"{(isAlice ? "Алиса" : "Антон")} осужден/а, но сомнения остаются.");
+            Console.WriteLine("Недостаток доказательств ставит приговор под вопрос.");
+            Console.WriteLine("Ваша репутация оказывается под угрозой, на вас косо смотрят однокурсники и куратор.");
+        }
+
+        static void End4()
+        {
+            Console.WriteLine("КОНЦОВКА 4: НЕДОСТАТОК ДОКАЗАТЕЛЬСТВ");
+            Console.WriteLine("Несмотря на тщательное расследование, доказательств недостаточно.");
+            Console.WriteLine("Оба подозреваемых отпущены. Дело остается нераскрытым.");
+        }
+
+        static void End5()
+        {
+            Console.WriteLine("КОНЦОВКА 5: ОТСУТСТВИЕ АРЕСТА");
+            Console.WriteLine("Вы не решились на арест без железных доказательств.");
+            Console.WriteLine("Убийца остается на свободе, но правда известна вам.");
+            Console.WriteLine("Моральная победа, но поражение и неуважение.");
+        }
+
+        static void End6()
+        {
+            Console.WriteLine("КОНЦОВКА 6: РЕШЕНИЕ ПО СВИДЕТЕЛЯМ");
+            Console.WriteLine("Дело построено на показаниях свидетелей.");
+            Console.WriteLine("Суд выносит обвинительный приговор, но улики слабые.");
+            Console.WriteLine("Победа с оговорками.");
+        }
+
+        static void End7()
+        {
+            Console.WriteLine("КОНЦОВКА 7: МЕТОДИЧНОЕ РАССЛЕДОВАНИЕ");
+            Console.WriteLine("Ваш подход был систематическим и профессиональным.");
+            Console.WriteLine("Однако ключевые доказательства отсутствуют.");
+            Console.WriteLine("Дело передано в архив для дальнейшего расследования.");
+        }
+
+        static void End8(bool isAlice)
+        {
+            Console.WriteLine("КОНЦОВКА 8: ПОСПЕШНОЕ РЕШЕНИЕ");
+            Console.WriteLine($"Вы поспешно арестовали {(isAlice ? "Алису" : "Антона")}.");
+            Console.WriteLine("Недостаток доказательств приводит к оправдательному приговору и дням исправительных работ по уборке туалетов.");
+            Console.WriteLine("Ха, лохи.");
+        }
+
+        static void End9()
+        {
+            Console.WriteLine("КОНЦОВКА 9: НЕРАЗГАДАННАЯ ТАЙНА");
+            Console.WriteLine("Оба подозреваемых одинаково вероятны как убийцы.");
+            Console.WriteLine("Недостаточно доказательств против любого из них.");
+            Console.WriteLine("Тайна убийства Рустама остается нераскрытой...");
+        }
+
+        static void End10(bool isAlice)
+        {
+            Console.WriteLine("КОНЦОВКА 10: ОБА ПИЗДАБОЛФ");
+            Console.WriteLine("Оба подозреваемых признаны виновными.");
+            Console.WriteLine("Расследование завершено удовлетворительно.");
+            Console.WriteLine("Правосудие свершилось, дело закрыто.");
+        }
+
+        static int GetChoice(int max)
+        {
+            int ch = 0;
+            bool valid = false;
+
+            while (!valid)
+            {
+                Console.Write($"\nВыберите действие (1-{max}): ");
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out ch) && ch >= 1 && ch <= max)
+                {
+                    valid = true;
+                }
+                else
+                {
+                    Console.WriteLine($"Пожалуйста, введите число от 1 до {max}");
+                }
+            }
+
+            return ch;
+        }
+    }
+}
